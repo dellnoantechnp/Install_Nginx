@@ -1,0 +1,9 @@
+/var/log/nginx/*.log {
+    missingok
+    notifempty
+    sharedscripts
+    delaycompress
+    postrotate
+        /usr/local/nginx/sbin/nginx -s reload > /dev/null 2>/dev/null || true
+    endscript
+}
